@@ -17,7 +17,7 @@ const App = () => {
 
       <button onClick={onToggleButton}>Close</button>
     </div>
-  )
+)
 }
 
 export default App
