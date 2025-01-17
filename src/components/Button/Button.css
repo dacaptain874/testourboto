@@ -3,7 +3,7 @@
   color: var(--tg-theme-text-color);
   border: none;
   padding: .5em 1em;
-  border: 1px solid var(--tg-theme-bg-color);
+  border: 1px solid var(--tg-theme-text-color);
   border-radius: 8px;
   font-size: 1.2rem;
   font-weight: bold;
