@@ -1,29 +1,21 @@
 .product {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--tg-theme-text-color);
+  justify-content: space-between;
+  border: 1px solid #D1D1D1;
   border-radius: 10px;
-  padding: 15px;
+  padding: 1em;
   width: 170px;
   gap: .5em;
+  text-transform: capitalize;
+  background: #E5E5E5;
+
 }
 
 .img {
   width: 100%;
-  background: lightgray;
-  height: 100px;
-  margin: 0 auto;
-}
-
-.title {
-  font-weight: bold;
-  font-size: 1.25rem;
 }
 
 .description {
   font-size: 1rem;
-}
-
-.add-btn {
-  width: 100%;
 }
