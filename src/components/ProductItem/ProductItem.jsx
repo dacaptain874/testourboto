@@ -10,7 +10,9 @@ const ProductItem = ({product, className, onAdd}) => {
 
   return (
       <div className={`product ` + className}>
-        <div className='img' />
+        <div className="img-container" >
+          <img src={product.img} className='img'/>
+        </div>
         <div className='title' >
           {product.title}
         </div>
@@ -18,7 +20,7 @@ const ProductItem = ({product, className, onAdd}) => {
           {product.description}
         </div>
         <div className='price' >
-          <span>Narxi: <b>{product.price}</b> </span>
+          <span>Narxi: <b>{product.price}</b> so'm </span>
         </div>
         <Button className="add-btn" onClick={addHandler} >
           Korzinkaga qo`shish

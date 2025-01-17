@@ -1,11 +1,10 @@
 .button {
-  background-color: var(--tg-theme-color);
-  color: var(--tg-theme-text-color);
+  background-color: blue;
+  color: white;
   border: none;
   padding: 1em 2em;
   border-radius: 8px;
   font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }

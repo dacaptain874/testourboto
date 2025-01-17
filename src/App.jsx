@@ -16,7 +16,7 @@ const App = () => {
 
 
   return (
-    <div>App
+    <div>
       <Header/>
       <Routes>
         <Route index element={<ProductList/>} />
