@@ -9,24 +9,21 @@ const ProductItem = ({product, className, onAdd}) => {
   }
 
   return (
-    <div>
       <div className={`product ` + className}>
-        {product.price}
+        <div className='img' />
+        <div className='title' >
+          {product.title}
+        </div>
+        <div className='description' >
+          {product.description}
+        </div>
+        <div className='price' >
+          <span>Narxi: <b>{product.price}</b> </span>
+        </div>
+        <Button className="add-btn" onClick={addHandler} >
+          Korzinkaga qo`shish
+        </Button>
       </div>
-      <div className='img' />
-      <div className='title' >
-        {product.title}
-      </div>
-      <div className='description' >
-        {product.description}
-      </div>
-      <div className='price' >
-        <span>Narxi: <b>{product.price}</b> </span>
-      </div>
-      <Button className="add-btn" onClick={addHandler} >
-        Korzinkaga qo`shish
-      </Button>
-    </div>
   )
 }
 
