@@ -6,6 +6,5 @@
   border: 1px solid var(--tg-theme-text-color);
   border-radius: 8px;
   font-size: 1.2rem;
-  font-weight: bold;
   cursor: pointer;
 }
