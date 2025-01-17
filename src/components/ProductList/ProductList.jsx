@@ -29,28 +29,28 @@ const ProductList = () => {
   const {tg} = useTelegram()
 
 
-    const onSendData = useCallback(() => {
-      const data = {
-        products: addedItems,
-        totalPrice: getTotalPrice(addedItems)
-      }
+    // const onSendData = useCallback(() => {
+    //   const data = {
+    //     products: addedItems,
+    //     totalPrice: getTotalPrice(addedItems)
+    //   }
     
-      fetch("https://localhost:5174", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data)
-      })
-    }, [])
+    //   fetch("https://localhost:5174", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(data)
+    //   })
+    // }, [])
   
-    useEffect(() => {
-      tg.onEvent("mainButtonClicked", onSendData)
+    // useEffect(() => {
+    //   tg.onEvent("mainButtonClicked", onSendData)
   
-      return () => {
-        tg.offEvent("mainButtonClicked", onSendData)
-      }
-    }, [onSendData])
+    //   return () => {
+    //     tg.offEvent("mainButtonClicked", onSendData)
+    //   }
+    // }, [onSendData])
 
 
   const onAdd = (product) => {
