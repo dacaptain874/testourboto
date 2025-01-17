@@ -22,7 +22,7 @@ const ProductItem = ({product, className, onAdd}) => {
         <div className='price' >
           <span>Narxi: <b>{product.price}</b> so'm </span>
         </div>
-        <Button className="add-btn" onClick={addHandler} >
+        <Button onClick={addHandler} >
           Korzinkaga qo`shish
         </Button>
       </div>
