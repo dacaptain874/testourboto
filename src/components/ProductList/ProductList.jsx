@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import "./ProductList.css"
 import ProductItem from '../ProductItem/ProductItem'
 import { useTelegram } from '../../hooks/useTelegram'
@@ -42,7 +42,7 @@ const ProductList = () => {
         },
         body: JSON.stringify(data)
       })
-    }, [country, street, subject])
+    }, [])
   
     useEffect(() => {
       tg.onEvent("mainButtonClicked", onSendData)
@@ -81,6 +81,7 @@ const ProductList = () => {
     <div className='list' >
       {products.map(item => (
         <ProductItem
+          key={item.id}
           product={item}
           onAdd={onAdd}
           className={"item"}
