@@ -5,7 +5,7 @@ import { useTelegram } from '../../hooks/useTelegram'
 const Form = () => {
 
   const [name, setName] = useState("")
-  const [number, setNumber] = useState(``)
+  const [number, setNumber] = useState("")
   const [country, setCountry] = useState("")
   const [street, setStreet] = useState("")
   const {tg} = useTelegram()
@@ -18,17 +18,11 @@ const Form = () => {
       street, 
     }
 
-    console.log("Sending data:", data)
-    const dataJson = JSON.stringify(data)
-    console.log("Sending JSON data:", dataJson);
-
-    tg.sendData("asdf")
+    tg.sendData(JSON.stringify(data))
   }, [name, number, country, street])
 
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData)
-    console.log("mainbuttonclicked")
-
     return () => {
       tg.offEvent("mainButtonClicked", onSendData)
     }
