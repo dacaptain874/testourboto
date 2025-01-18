@@ -67,7 +67,7 @@ const ProductList = () => {
     } else {
       tg.MainButton.show()
       tg.MainButton.setParams({
-        text: `Zakaz berish: ${getTotalPrice(newItems.map(item => item.price * item.quantity))}`
+        text: `Zakaz berish: ${getTotalPrice(product.price * product.quantity)}`
       })
     }
 
