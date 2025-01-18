@@ -17,8 +17,14 @@ const Form = () => {
       country, 
       street, 
     }
+    console.log("checking data: ", data);
 
-    tg.sendData(data)
+    // Check if all fields are filled before sending
+    if (data.name && data.number && data.country && data.street) {
+      tg.sendData(data);
+    } else {
+      console.error("All fields must be filled.");
+    }
   }, [name, number, country, street])
 
   useEffect(() => {
