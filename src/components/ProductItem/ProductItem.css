@@ -19,3 +19,21 @@
 .description {
   font-size: 1rem;
 }
+
+.product-quantity {
+  display: flex;
+  gap: .5em;
+  justify-content: center;
+  align-content: center;
+}
+
+.product-quantity > * {
+  padding: .5em 0;
+}
+
+.product-quantity div {
+  padding: .5em 1em;
+  background-color: #D1D1D1;
+  border-radius: 6px;
+  cursor: pointer;
+}

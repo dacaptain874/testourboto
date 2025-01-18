@@ -17,13 +17,6 @@ const products = [
   {id: "11", title: "veral 18W", price: 14355, description: "18 watt led", img: "https://images.uzum.uz/crqgrnkhug2lhicohrb0/original.jpg"},
 ]
 
-const getTotalPrice = (items) => {
-  return items.reduce((acc, item) => {
-    return acc += item.price
-  }, 0) 
-}
-
-
 const ProductList = () => {
 
   const [addedItems, setAddedItems] = useState([])
@@ -49,10 +42,14 @@ const ProductList = () => {
       return () => {
           tg.offEvent('mainButtonClicked', onSendData)
       }
-  }, [onSendData])
+  }, [onSendData])  
 
-
+  const getTotalPrice = (items) => {
+    return items.reduce((total, item) => total + item.price, 0)
+  }
+  
   const onAdd = (product) => {
+    
     const alreadyAdded = addedItems.find(item => item.id === product.id)
     
     let newItems = []
@@ -70,7 +67,7 @@ const ProductList = () => {
     } else {
       tg.MainButton.show()
       tg.MainButton.setParams({
-        text: `Zakaz berish: ${getTotalPrice(newItems)}`
+        text: `Zakaz berish: ${getTotalPrice(newItems.map(item => item.price * item.quantity))}`
       })
     }
 
