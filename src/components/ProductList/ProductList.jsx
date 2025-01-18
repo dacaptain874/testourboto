@@ -45,7 +45,7 @@ const ProductList = () => {
   }, [onSendData])  
 
   const getTotalPrice = (items) => {
-    return items.reduce((total, item) => total + item.price, 0)
+    return items.reduce((total, item) => total + item, 0)
   }
   
   const onAdd = (product) => {
@@ -60,7 +60,7 @@ const ProductList = () => {
       newItems = [...addedItems, product]
     }
     
-    const getTotalPrice = () => {
+  const getTotalQuantity = () => {
       return newItems.map(item => item.price * item.quantity)
     }
     
@@ -72,7 +72,7 @@ const ProductList = () => {
     } else {
       tg.MainButton.show()
       tg.MainButton.setParams({
-        text: `Zakaz berish: ${getTotalPrice(getTotalPrice())}`
+        text: `Zakaz berish: ${getTotalPrice(getTotalQuantity())}`
       })
     }
 
