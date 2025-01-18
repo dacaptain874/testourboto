@@ -5,7 +5,6 @@ import "./ProductItem.css"
 const ProductItem = ({product, className, onAdd}) => {
 
   const addHandler = () => {
-    console.log(onAdd)
     onAdd(product)
   }
 
