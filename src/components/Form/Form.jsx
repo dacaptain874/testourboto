@@ -4,20 +4,22 @@ import { useTelegram } from '../../hooks/useTelegram'
 
 const Form = () => {
 
+  const [name, setName] = useState("")
+  const [number, setNumber] = useState(``)
   const [country, setCountry] = useState("")
   const [street, setStreet] = useState("")
-  const [subject, setSubject] = useState("jismoniy")
   const {tg} = useTelegram()
 
   const onSendData = useCallback(() => {
     const data = {
+      name, 
+      number,
       country, 
       street, 
-      subject
     }
 
     tg.sendData(JSON.stringify(data))
-  }, [country, street, subject])
+  }, [country, street])
 
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData)
@@ -49,14 +51,35 @@ const Form = () => {
   const onChangeStreet = e => {
     setStreet(e.target.value)
   }
+  
+  const onChangeName = e => {
+    setName(e.target.value)
+  }
 
-  const onChangeSubject = e => {
-    setSubject(e.target.value)
+  const onChangeNumber = e => {
+    const newValue = e.target.value
+    if (/^\d*$/.test(newValue)) {
+      setNumber(newValue);
+    }
   }
 
   return (
     <div className='form' >
-      <h3>ozingiz haqingizdagi malumotni kiriting: </h3>
+      <h1>O'zingiz haqingizdagi malumotni kiriting: </h1>
+      <input 
+        className='input' 
+        type="text" 
+        placeholder='F.I.O' 
+        value={name}
+        onChange={onChangeName}
+      />
+      <input 
+        className='input' 
+        type="text" 
+        placeholder='Telefon raqamingiz' 
+        value={number}
+        onChange={onChangeNumber}
+      />
       <input 
         className='input' 
         type="text" 
@@ -71,14 +94,8 @@ const Form = () => {
         value={street}
         onChange={onChangeStreet}
       />
-      <select 
-        className='select' 
-        value={subject}
-        onChange={onChangeSubject}
-      >
         <option value="jismoniy">Jismoniy shaxs</option>
         <option value="yuridik">Yuridik shaxs</option>
-      </select>
     </div>
   )
 }
