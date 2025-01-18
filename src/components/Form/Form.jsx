@@ -18,11 +18,16 @@ const Form = () => {
       street, 
     }
 
-    tg.sendData(JSON.stringify(data))
-  }, [country, street])
+    console.log("Sending data:", data)
+    const dataJson = JSON.stringify(data)
+    console.log("Sending JSON data:", dataJson);
+
+    tg.sendData("asdf")
+  }, [name, number, country, street])
 
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData)
+    console.log("mainbuttonclicked")
 
     return () => {
       tg.offEvent("mainButtonClicked", onSendData)
@@ -94,8 +99,6 @@ const Form = () => {
         value={street}
         onChange={onChangeStreet}
       />
-        <option value="jismoniy">Jismoniy shaxs</option>
-        <option value="yuridik">Yuridik shaxs</option>
     </div>
   )
 }
