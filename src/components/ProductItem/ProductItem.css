@@ -1,19 +1,16 @@
 .product {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-wrap: wrap;
   border: 1px solid #D1D1D1;
   border-radius: 10px;
-  padding: 1em;
-  width: 200px;
-  gap: .5em;
+  padding: .5em;
   text-transform: capitalize;
   background: #E5E5E5;
+  line-height: 2;
+  width: 190px;
 }
 
 .img {
   width: 100%;
+  border-radius: 6px 6px 0 0;
 }
 
 .description {
@@ -39,8 +36,8 @@
 }
 
 .product-quantity-btns div {
-  text-align: center;
-  padding: .5em;
+  line-height: 1;
+  padding: .75em;
   background-color: #D1D1D1;
   border-radius: 6px;
   cursor: pointer;
