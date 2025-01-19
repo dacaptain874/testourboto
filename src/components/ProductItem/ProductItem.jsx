@@ -5,18 +5,18 @@ import "./ProductItem.css"
 const ProductItem = ({product, className, onAdd}) => {
 
   const [productQuantity, setProductQuantity] = useState(0)
+  const [productQuantityBlock, setProductQuantityBlock] = useState(0)
 
   const addHandler = () => {
     const updatedProduct = { ...product, quantity: productQuantity }
     onAdd(updatedProduct)
   }
 
-  const productQuantityPlus = () => {
-    setProductQuantity(prev => prev + 1)
+  const plusProduct = (setter) => {
+    setter(item => item + 1)
   }
-
-  const productQuantityMinus = () => {
-    setProductQuantity(prev => prev === 0 ? prev = 0 : prev - 1)
+  const minusProduct = (setter) => {
+    setter(prev => (prev > 1 ? prev - 1 : 1))
   }
   
 
@@ -37,9 +37,16 @@ const ProductItem = ({product, className, onAdd}) => {
           <span>Narxi: <b>{product.price}</b> so'm </span>
         </div>
         <div className='product-quantity' >
-          <div onClick={productQuantityMinus} >-</div>
+          <span>blok:({product.blok}) </span>
+          <div onClick={() => minusProduct(setProductQuantityBlock)} >-</div>
+          <span>{productQuantityBlock}</span>
+          <div onClick={() => plusProduct(setProductQuantityBlock)} >+</div>
+        </div>
+        <div className='product-quantity' >
+          <span>dona: </span>
+          <div onClick={() => minusProduct(setProductQuantity)} >-</div>
           <span>{productQuantity}</span>
-          <div onClick={productQuantityPlus} >+</div>
+          <div onClick={() => plusProduct(setProductQuantity)} >+</div>
         </div>
         <Button onClick={addHandler} >
           Korzinkaga qo`shish
