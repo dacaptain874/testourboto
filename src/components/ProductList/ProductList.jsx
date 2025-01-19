@@ -26,13 +26,13 @@ const ProductList = () => {
     return items.reduce((total, item) => total + item.price * (item.quantity + item.quantityBlok * item.blok), 0);
   }, []);
 
-  const onSendData = useCallback(() => {
-    const data = {
-        products: addedItems,
-        totalPrice: getTotalPrice(addedItems),
-    }
-    tg.sendData(JSON.stringify(data))
-  }, [addedItems])
+  // const onSendData = useCallback(() => {
+  //   const data = {
+  //       products: addedItems,
+  //       totalPrice: getTotalPrice(addedItems),
+  //   }
+  //   tg.sendData(JSON.stringify(data))
+  // }, [addedItems])
 
   useEffect(() => {
       tg.onEvent('mainButtonClicked', onSendData)
