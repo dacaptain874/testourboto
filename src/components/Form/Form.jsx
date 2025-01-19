@@ -73,7 +73,7 @@ const Form = () => {
       />
       <input 
         className='input' 
-        type="text" 
+        type="tel" 
         placeholder='Telefon raqamingiz' 
         value={number}
         onChange={onChangeNumber}
