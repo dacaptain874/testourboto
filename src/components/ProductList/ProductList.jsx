@@ -20,7 +20,7 @@ const products = [
 const ProductList = () => {
 
   const [addedItems, setAddedItems] = useState([])
-  const {tg, queryId} = useTelegram()
+  const {tg} = useTelegram()
 
   const getTotalPrice = useCallback((items) => {
     return items.reduce((total, item) => total + item.price * (item.quantity + item.quantityBlok * item.blok), 0);
@@ -30,15 +30,8 @@ const ProductList = () => {
     const data = {
         products: addedItems,
         totalPrice: getTotalPrice(addedItems),
-        queryId,
     }
-    fetch('https://thriving-lollipop-359fe8.netlify.app', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-    })
+    tg.sendData(JSON.stringify(data))
   }, [addedItems])
 
   useEffect(() => {
