@@ -22,6 +22,10 @@ const ProductList = () => {
   const [addedItems, setAddedItems] = useState([])
   const {tg, queryId} = useTelegram()
 
+  const getTotalPrice = useCallback((items) => {
+    return items.reduce((total, item) => total + item.price * (item.quantity + item.quantityBlok * item.blok), 0);
+  }, []);
+
   const onSendData = useCallback(() => {
     const data = {
         products: addedItems,
@@ -43,10 +47,6 @@ const ProductList = () => {
           tg.offEvent('mainButtonClicked', onSendData)
       }
   }, [onSendData])  
-
-  const getTotalPrice = (items) => {
-    return items.reduce((total, item) => total + (item.price * item.quantity) + (item.quantityBlok * item.blok * item.price), 0);
-  };
   
   const onAdd = (product) => {
     
@@ -56,16 +56,17 @@ const ProductList = () => {
 
       if (existingItem) {
         updatedItems = prevItems.map(item => 
-          item.id === product.id ? { ...item, quantity: product.quantity + 1, quantityBlok: product.quantityBlok + 1} : item
+          item.id === product.id ? { 
+            ...item, 
+            quantity: product.quantity, 
+            quantityBlok: product.quantityBlok
+          } : item
         )
       } else {
         updatedItems = [...prevItems, { ...product, quantity: product.quantity, quantityBlok: product.quantityBlok }]
       }
 
       const totalPrice = getTotalPrice(updatedItems)
-
-      console.log(updatedItems);
-      
 
       if (updatedItems.length === 0) {
         tg.MainButton.hide()
