@@ -45,7 +45,7 @@ const ProductList = () => {
   }, [onSendData])  
 
   const getTotalPrice = (items) => {
-    return items.reduce((total, item) => total + item.price * item.quantity + item.blok * item.price, 0);
+    return items.reduce((total, item) => total + (item.price * item.quantity) + (item.quantityBlok * item.blok * item.price), 0);
   };
   
   const onAdd = (product) => {
@@ -59,7 +59,7 @@ const ProductList = () => {
           item.id === product.id ? { ...item, quantity: product.quantity + 1, quantityBlok: product.quantityBlok + 1} : item
         )
       } else {
-        updatedItems = [...prevItems, { ...product, quantity: product.quantity, blok: product.blok }]
+        updatedItems = [...prevItems, { ...product, quantity: product.quantity, quantityBlok: product.quantityBlok }]
       }
 
       const totalPrice = getTotalPrice(updatedItems)
