@@ -45,7 +45,7 @@ const ProductList = () => {
   }, [onSendData])  
 
   const getTotalPrice = (items) => {
-    return items.reduce((total, item) => total + item.price * item.quantity, 0);
+    return items.reduce((total, item) => total + item.price * item.quantity + item.blok * item.price, 0);
   };
   
   const onAdd = (product) => {
