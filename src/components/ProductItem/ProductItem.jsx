@@ -14,11 +14,9 @@ const ProductItem = ({product, className, onAdd}) => {
 
   const plusProduct = (setter) => {
     setter(item => item + 1)
-    addHandler()
   }
   const minusProduct = (setter) => {
     setter(prev => (prev === 0 ? 0 : prev - 1))
-    addHandler()
   }
   
 
