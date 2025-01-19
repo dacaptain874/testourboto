@@ -8,7 +8,7 @@ const ProductItem = ({product, className, onAdd}) => {
   const [productQuantityBlock, setProductQuantityBlock] = useState(0)
 
   const addHandler = () => {
-    const updatedProduct = { ...product, quantity: productQuantity }
+    const updatedProduct = { ...product, quantity: productQuantity, blok: productQuantityBlock }
     onAdd(updatedProduct)
   }
 

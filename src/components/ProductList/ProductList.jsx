@@ -55,14 +55,17 @@ const ProductList = () => {
       let updatedItems
 
       if (existingItem) {
-        updatedItems = prevItems.map(item =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        updatedItems = prevItems.map(item => 
+          item.id === product.id ? { ...item, quantity: product.quantity + 1, blok: product.blok + 1} : item
         )
       } else {
-        updatedItems = [...prevItems, { ...product, quantity: 1 }]
+        updatedItems = [...prevItems, { ...product, quantity: product.quantity, blok: product.blok }]
       }
 
       const totalPrice = getTotalPrice(updatedItems)
+
+      console.log(updatedItems);
+      
 
       if (updatedItems.length === 0) {
         tg.MainButton.hide()
