@@ -56,7 +56,7 @@ const Form = () => {
 
   const onChangeNumber = e => {
     const newValue = e.target.value
-    if (/^\d*$/.test(newValue)) {
+    if (/[+][0-9]{1,15}/.test(newValue)) {
       setNumber(newValue);
     }
   }
